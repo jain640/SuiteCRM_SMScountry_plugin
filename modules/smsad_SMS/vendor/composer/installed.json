@@ -1,0 +1,65 @@
+[
+    {
+        "name": "apimatic/unirest-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/apimatic/unirest-php.git",
+            "reference": "ab48fe3322b275a27de3ff8d786be19d16fe01d7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/apimatic/unirest-php/zipball/ab48fe3322b275a27de3ff8d786be19d16fe01d7",
+            "reference": "ab48fe3322b275a27de3ff8d786be19d16fe01d7",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "codeclimate/php-test-reporter": "0.1.*",
+            "phpunit/phpunit": "~4.4"
+        },
+        "time": "2016-09-01 05:59:13",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Unirest": "src"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mashape",
+                "email": "opensource@mashape.com",
+                "homepage": "https://www.mashape.com",
+                "role": "Developer"
+            },
+            {
+                "name": "APIMATIC",
+                "email": "opensource@apimatic.io",
+                "homepage": "https://apimatic.io",
+                "role": "Developer"
+            }
+        ],
+        "description": "Unirest PHP",
+        "homepage": "https://github.com/apimatic/unirest-php",
+        "keywords": [
+            "client",
+            "curl",
+            "http",
+            "https",
+            "rest"
+        ],
+        "support": {
+            "email": "opensource@apimatic.io",
+            "source": "https://github.com/apimatic/unirest-php/tree/1.3.1"
+        }
+    }
+]
