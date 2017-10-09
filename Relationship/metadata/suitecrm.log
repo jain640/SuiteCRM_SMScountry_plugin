@@ -1,0 +1,2 @@
+Sun Jan 29 17:58:41 2017 [3967][1][FATAL] could not load RHS  in Lead
+Sun Jan 29 17:58:41 2017 [3967][1][FATAL] Error updating tasks entry:  Query Failed: INSERT INTO smsad_sms_cstm (id_c, message_status_c) values('ad82e01a-f20d-762f-19b2-588ddf3440ac', 'NO_GATEWAY');: MySQL error 1146: Table 'suitecrm.smsad_sms_cstm' doesn't exist
