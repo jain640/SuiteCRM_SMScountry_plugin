@@ -1,0 +1,178 @@
+<!--
+/*********************************************************************************
+ * SugarCRM Community Edition is a customer relationship management program developed by
+ * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
+
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
+ * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Affero General Public License version 3 as published by the
+ * Free Software Foundation with the addition of the following permission added
+ * to Section 15 as permitted in Section 7(a): FOR ANY PART OF THE COVERED WORK
+ * IN WHICH THE COPYRIGHT IS OWNED BY SUGARCRM, SUGARCRM DISCLAIMS THE WARRANTY
+ * OF NON INFRINGEMENT OF THIRD PARTY RIGHTS.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with
+ * this program; if not, see http://www.gnu.org/licenses or write to the Free
+ * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301 USA.
+ *
+ * You can contact SugarCRM, Inc. headquarters at 10050 North Wolfe Road,
+ * SW2-130, Cupertino, CA 95014, USA. or at email address contact@sugarcrm.com.
+ *
+ * The interactive user interfaces in modified source and object code versions
+ * of this program must display Appropriate Legal Notices, as required under
+ * Section 5 of the GNU Affero General Public License version 3.
+ *
+ * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
+ * these Appropriate Legal Notices must retain the display of the "Powered by
+ * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
+ * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
+ * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ ********************************************************************************/
+
+/*********************************************************************************
+
+ ********************************************************************************/
+-->
+<!-- BEGIN: main -->
+<style>
+	#subjectfield { height: 27px; }
+</style>
+{JAVASCRIPT}
+<script type="text/javascript" language="Javascript" src="modules/Emails/javascript/Email.js?v={VERSION_MARK}"></script>
+<script type="text/javascript" language="Javascript" src="custom/modules/smsad_sms_template/smsad_sms_template.js?v={VERSION_MARK}"></script>
+<script type="text/javascript" src="cache/include/javascript/sugar_grp1.js?v={VERSION_MARK}"></script>
+<script type="text/javascript">
+{FIELD_DEFS_JS}
+</script>
+{JSLANG}
+
+<form name="EditView" id="EditView" method="POST" action="index.php" enctype="multipart/form-data">
+	<input type="hidden" name="module" value="smsad_sms_template">
+	<input type="hidden" name="record" value="{ID}">
+	<input type="hidden" name="action">
+	<input type="hidden" name="form">
+	<input type="hidden" name="return_module" value="{RETURN_MODULE}">
+	<input type="hidden" name="return_id" value="{RETURN_ID}">
+	<input type="hidden" name="return_action" value="{RETURN_ACTION}">
+	<input type="hidden" name="inpopupwindow" value="{INPOPUPWINDOW}">
+	<input type="hidden" name="old_id" value="{OLD_ID}">
+
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td>
+				<input title="{APP.LBL_SAVE_BUTTON_TITLE}" accesskey="{APP.LBL_SAVE_BUTTON_KEY}" class="button primary"
+					onclick="	if(this.form.name.value=='') {
+									alert('Please insert name of Template');
+									return false;
+								}
+								if(this.form.description.value=='') {
+									alert('Please insert SMS Template');
+									return false;
+								}
+								this.form.action.value='Save';
+<!-- BEGIN: NoInbound1 -->
+								addUploadFiles('EditView');
+								addUploadDocs('EditView');
+<!-- END: NoInbound1 -->
+								return check_form('EditView');"
+					type="submit" name="button" value="{APP.LBL_SAVE_BUTTON_LABEL}" id="SAVE">
+				<input title="{APP.LBL_CANCEL_BUTTON_TITLE}" accesskey="{APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="{CANCEL_SCRIPT}" type="submit" name="button" value="{APP.LBL_CANCEL_BUTTON_LABEL}" id="CANCEL">
+			</td>
+			<td align="right" nowrap>
+				<span class="required">
+					{APP.LBL_REQUIRED_SYMBOL}
+				</span>
+				{APP.NTC_REQUIRED}
+			</td>
+			<td align='right'>
+				{ADMIN_EDIT}
+			</td>
+		</tr>
+	</table>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit view">
+		<tr>
+			<td>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="15%" scope="row">
+							{MOD.LBL_NAME}
+							<span class="required">
+								{APP.LBL_REQUIRED_SYMBOL}
+							</span>
+						</td>
+						<td width="30%" >
+							<input  id='name' name='name' tabindex="0" type="text" size='30' maxlength="255" value="{NAME}">
+						</td>
+                        <td width="15%" scope="row">
+                         <!--{MOD.LBL_TYPE}-->
+                         {MOD.LBL_STATUS}
+                        </td>
+                        <td width="30%" >
+                            <select name='status_id' tabindex="11">{STATUSDROPDOWN}</select>
+                        </td>
+					</tr>
+<!-- BEGIN: NoInbound -->
+					<tr>
+						<td width="15%" scope="row" align='left'>
+							{MOD.LBL_INSERT_VARIABLE}&nbsp;
+						</td>
+						<td width="30%"  colspan="3">
+							<select name='variable_module' tabindex="0" onchange="addVariables(document.EditView.variable_name,this.options[this.selectedIndex].value);">
+  							  {DROPDOWN}
+ 							</select>
+							<select name='variable_name' tabindex="0" onchange="showVariable();">
+							</select>
+							<span scope="row">
+								{MOD.LBL_USE}:
+							</span>
+							<input type="text" size="30" tabindex="0" name="variable_text" />
+<!-- BEGIN: variable_button -->
+							<input type='button' tabindex="0" onclick='{INSERT_VARIABLE_ONCLICK}' class='button' value='{MOD.LBL_INSERT}'>
+<!-- END: variable_button -->
+						</td>
+					</tr>
+					<tr>
+						<td width="15%" scope="row">
+							{MOD.LBL_DESCRIPTION}
+							<span class="required">
+								{APP.LBL_REQUIRED_SYMBOL}
+							</span>
+						</td>
+						<td colspan="3" >
+							<textarea name='description' tabindex='0' cols="90" rows="3" style="height: 1.6.em; overflow-y:auto; font-family:sans-serif,monospace; font-size:inherit;" id="description">{DESCRIPTION}</textarea>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							&nbsp;
+						</td>
+					</tr>
+<!-- END: NoInbound2 -->
+				</table>
+			</td>
+		</tr>
+	</table>
+</form>
+
+<script type="text/javascript" language="javascript">
+function toggle_portal_flag() {
+	{TOGGLE_JS}
+}
+<!-- BEGIN: NoInbound5 -->
+addVariables(document.EditView.variable_name,'{DEFAULT_MODULE}');
+<!-- END: NoInbound5 -->
+focus_obj = document.EditView.body;
+toggle_portal_flag();
+</script>
+
+
+
+<!-- END: main -->

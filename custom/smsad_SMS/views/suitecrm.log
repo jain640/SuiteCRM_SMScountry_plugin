@@ -1,0 +1,12 @@
+Mon Jan 30 02:14:32 2017 [1231][1][FATAL] Exception in Controller: Unknown SSL protocol error in connection to restapi.smscountry.com:443 
+Mon Jan 30 09:32:59 2017 [1244][1][FATAL] Exception in Controller: Invalid To Number.
+Mon Jan 30 09:38:18 2017 [31658][1][FATAL] Exception in Controller: Invalid To Number.
+Mon Jan 30 09:43:27 2017 [7404][1][FATAL] Exception in Controller: Invalid To Number.
+Mon Jan 30 09:44:02 2017 [31658][1][FATAL] Exception in Controller: Invalid To Number.
+Mon Jan 30 09:44:05 2017 [1227][1][FATAL] Exception in Controller: Invalid To Number.
+Mon Jan 30 09:44:08 2017 [18161][1][FATAL] Exception in Controller: Invalid To Number.
+Mon Jan 30 09:44:50 2017 [11387][1][FATAL] Exception in Controller: Invalid To Number.
+Mon Jan 30 09:51:32 2017 [7400][1][FATAL] Exception in Controller: Invalid To Number.
+Mon Jan 30 09:53:00 2017 [21928][1][FATAL] Exception in Controller: Invalid To Number.
+Mon Jan 30 10:01:19 2017 [8983][1][FATAL] Exception in Controller: Invalid To Number.
+Mon Jan 30 10:06:54 2017 [1236][1][FATAL] Exception in Controller: Invalid To Number.
